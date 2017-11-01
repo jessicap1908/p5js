@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>p5js Template</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.3/p5.js"></script>
+    
+    <script>
+    var centerX, CenterY;
+    var background= 255;
+        function setup() {
+            createCanvas(800,600);
+        }
+
+        function draw() {
+            
+        }
+        
+         function mouseMoved()  {
+            
+            // small square with it's circles and lines
+           background(1,10)
+           line(mouseX,mouseY,random(mouseX,mouseX-200),random(mouseY-100,mouseY+200));//lines that appear for the circle on the left top of the square near mouse.
+           line(mouseX+110,mouseY,random(mouseX+110,mouseX+300),random(mouseY-100,mouseY+200));// lines that appear for the circle on the right top of the square.
+           stroke (random(255), random(255),random(255));
+           rect(mouseX,mouseY,110,100);
+           ellipse(mouseX,mouseY,55,50);
+           ellipse(mouseX+110,mouseY,55,50);
+           fill(random(200),random(200),random(200));
+           
+           
+           // Big square with it'scircles and lines
+         line(600-mouseX,429-mouseY,random(600-mouseX,400-mouseX),random(429-mouseY,mouseY));//the lines appearing from the top right circle 
+         line (800-mouseX,429-mouseY,random(100+mouseX,800),random(200-mouseY,10+mouseY));//the lines appearing from the top left circle
+           rect(600-mouseX,420-mouseY,200,180);
+            ellipse(600-mouseX,429-mouseY,100,100);
+             ellipse(800-mouseX,429-mouseY,100,100);
+              fill((200),random(255),random(255));
+         }
+         
+          // The triangles that appear whent the mouse is pressed forming near the mouse.
+        function mouseDragged() {
+         
+             background(0,10);
+           stroke(200,100,200);
+           fill (random(200),random(200),random(200));
+           triangle(mouseX,mouseY,mouseX-random(5,30),mouseY-(50,30),mouseX+random(20,30),mouseY+random(20,30));// the triangles when mouse is pressed
+        }
+        
+        
+        
+        
+        
+        
+    </script>
+</head>
+
+<body>
+    <div id="code" class="container-fluid">
+        <script src="https://gist-it.appspot.com/github/jessicap1908/p5js/blob/master/project-interaction.html?footer=0"></script>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(window).bind("load", function() {
+            $('#code').before($('#defaultCanvas0').remove());
+        });
+    </script>
+</body>
+
+
+</html>
