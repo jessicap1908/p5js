@@ -14,10 +14,10 @@
         
          function mouseMoved()  {
             
-            // small square with it's circles and lines
+            // Small square with it's circles and lines
            background(1,10)
-           line(mouseX,mouseY,random(mouseX,mouseX-200),random(mouseY-100,mouseY+200));//lines that appear for the circle on the left top of the square near mouse.
-           line(mouseX+110,mouseY,random(mouseX+110,mouseX+300),random(mouseY-100,mouseY+200));// lines that appear for the circle on the right top of the square.
+           line(mouseX,mouseY,random(mouseX,mouseX-200),random(mouseY-100,mouseY+200));//Lines that appear for the circle on the left top of the small square near the mouse.
+           line(mouseX+110,mouseY,random(mouseX+110,mouseX+300),random(mouseY-100,mouseY+200));// Lines that appear for the circle on the right top of the small square.
            stroke (random(255), random(255),random(255));
            rect(mouseX,mouseY,110,100);
            ellipse(mouseX,mouseY,55,50);
@@ -26,8 +26,8 @@
            
            
            // Big square with it's circles and lines
-         line(600-mouseX,429-mouseY,random(600-mouseX,400-mouseX),random(429-mouseY,mouseY));//the lines appearing from the top right circle 
-         line (800-mouseX,429-mouseY,random(100+mouseX,800),random(200-mouseY,10+mouseY));//the lines appearing from the top left circle
+         line(600-mouseX,429-mouseY,random(600-mouseX,400-mouseX),random(429-mouseY,mouseY));//The lines appearing from the top right circle of the big square.
+         line (800-mouseX,429-mouseY,random(100+mouseX,800),random(200-mouseY,10+mouseY));//The lines appearing from the top left circle of the big square.
            rect(600-mouseX,420-mouseY,200,180);
             ellipse(600-mouseX,429-mouseY,100,100);
              ellipse(800-mouseX,429-mouseY,100,100);
@@ -40,7 +40,7 @@
              background(0,10);
            stroke(200,100,200);
            fill (random(200),random(200),random(200));
-           triangle(mouseX,mouseY,mouseX-random(5,30),mouseY-(50,30),mouseX+random(20,30),mouseY+random(20,30));// the triangles when mouse is pressed
+           triangle(mouseX,mouseY,mouseX-random(5,30),mouseY-(50,30),mouseX+random(20,30),mouseY+random(20,30));// The triangles when mouse is pressed
         }
         
         
