@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>p5js Template</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.3/p5.js"></script>
+    
+    <script>
+    var mouseX;
+    var mouseY;
+    var h;
+    var w;
+    var y; //one section's height
+    var x; //one section's width 
+    var circleH=60 // the height of the ellipse 
+    var circleW=60 // the width of the ellipse
+        function setup() {
+            createCanvas(600,600);
+            h=height;
+            w=width
+            x=width/4; // one section's width 
+            y=height/4;// one section's height
+            circleW=60
+            circleH=60
+          
+        }
+        
+        function mouseDragged()
+        {
+            if(mouseX<x&&mouseY<h){  // the first left section of the four sections
+              fill("yellow");
+              
+          } else if (mouseX<x*2&&mouseY<h){  // the second left section of the four sections
+              fill("blue");
+          }
+          else if (mouseX<x*3&&mouseY<h){ // the third left section from the four sections
+              fill("green");
+          }
+       
+          else  {           // the last section on the right side 
+              fill("red")
+          }
+        
+         ellipse(mouseX,mouseY,circleW,circleH);// the ellipse being started ever since the mouse is pressed
+        }
+        
+        function keyPressed(){
+            if (keyCode==UP_ARROW){ // When the up arrow is pressed the background becomes white
+            background(255);
+                
+            }
+            if (keyCode==RIGHT_ARROW){
+                circleW++ && circleH++;  // Each time the right arrow is pressed both the width and height increase
+            }
+            if (keyCode==LEFT_ARROW){
+                circleW--&& circleH--; //Each time the left arrow is pressed both the width and height decrease
+            }
+            
+            circleH=constrain(circleH,1,300)// the height of the ellipse is being limited to be as low as 1 and up to 300
+            circleW=constrain(circleW,1,300)//the width of the ellipse is being limited to be as low as 1 and up to 300
+        
+            
+        }
+        
+ 
+    </script>
+</head>
+
+<body>
+    <div id="code" class="container-fluid">
+        <script src="https://gist-it.appspot.com/github/jessica1908/p5js/blob/master/paint.html?footer=0"></script>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(window).bind("load", function() {
+            $('#code').before($('#defaultCanvas0').remove());
+        });
+    </script>
+</body>
+
+
+</html>
+
+
+
+
+
