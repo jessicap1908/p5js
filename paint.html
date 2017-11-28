@@ -55,7 +55,7 @@
             if (keyCode==LEFT_ARROW){
                 circleW--&& circleH--; //Each time the left arrow is pressed both the width and height decrease
             }
-            
+            else return false;
             circleH=constrain(circleH,1,300)// the height of the ellipse is being limited to be as low as 1 and up to 300
             circleW=constrain(circleW,1,300)//the width of the ellipse is being limited to be as low as 1 and up to 300
         
