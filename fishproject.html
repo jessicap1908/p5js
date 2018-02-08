@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>p5js Template</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.3/p5.js"></script>
+
+    <script>
+        var fishes = [];
+        var bubbles = [];
+
+        function setup() {
+            createCanvas(500, 500);
+            for (var i = 0; i < 2; i++) {// Up to two makings of a fish
+                fishes.push(new Fish(255, 128, 0)) // A new fish to be the color orange when the vaiable is true.
+
+            }
+        }
+
+        function draw() {
+            background(51, 153, 255)
+            for (var i = 0; i < fishes.length; i++) {
+                fishes[i].move();
+                fishes[i].display();
+
+                if (frameCount % 60 == 0) {// For every second a bubble will apppear from the front of the fish's mouth
+                    bubbles.push(new Bubble(fishes[i].x, fishes[i].y))// As another bubble appears it will be from the coordinate of the front of the fish ellipse.
+                }
+            }
+
+            for (var i = 0; i < bubbles.length; i++) {
+                bubbles[i].moves();
+            }
+        }
+
+        function Bubble(x, y) {
+
+            this.moves = function() {
+         
+                noFill();
+                stroke(0, 0, 255);
+                strokeWeight(2);
+           ellipse(x + 30, y--, 10, 10)// The ellipse will be moving upward from the fishes front part the mouth.
+            }
+        }
+
+        function Fish(r, g, b) {// The representation of the colors of the fish
+            this.x = random(width);
+            this.y = random(height);
+
+            this.display = function() {
+                stroke(0)
+                strokeWeight(0)
+                fill(r, g, b)
+                ellipse(this.x, this.y, 60, 40);// the oval shape of the fishes body part
+                triangle(this.x - 60, this.y + 20, this.x - 60, this.y - 20, this.x - 31, this.y);// The traiangle's cordinates of the three points that make it from its distance to the center of the ellipse.
+            }
+
+
+            this.move = function() {
+                if (this.x > width) {//resets to left
+                    this.x = 0;
+                    this.y = random(height)
+                }
+
+                if (this.x < 0) {//resets to right
+                    this.x = width;
+                    this.y = random(height)
+                }
+                if (this.y < 0) {//resets to the bottom
+                    this.y = height;
+                    this.x = random(width)
+                }
+                if (this.y > height) {//resets to the top
+                    this.y = 0;
+                    this.x = random(width)
+                }
+
+                if (keyCode === LEFT_ARROW) {//moves fish location to the left
+                    this.x -= 2
+                }
+
+                if (keyCode === RIGHT_ARROW) {//moves fish location to the right
+                this.x += 2
+                }
+
+                if (keyCode === UP_ARROW) {//moves fish location upward
+                    this.y -= 2;
+                }
+
+                if (keyCode === DOWN_ARROW) {//moves the fish location downward
+                this.y += 2;
+
+                }
+
+            }
+
+        }
+    </script>
+</head>
+
+body>
+<form><input TYPE="button" onClick="history.go(0)" value="Reset"></form>
+    <div id="code" class="container-fluid">
+        <script src="https://gist-it.appspot.com/github/jessicap1908/p5js/blob/master/fishproject.html?footer=0"></script>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(window).bind("load", function() {
+            $('#code').before($('#defaultCanvas0').remove());
+        });
+    </script>
+</body>
+
+
+</html>
